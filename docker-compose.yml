@@ -1,0 +1,16 @@
+services:
+  inertia-laravel-db:
+    image: postgres:latest
+    container_name: inertia-laravel-db-container
+    ports:
+      - "53322:5432"
+    volumes:
+      - postgresdb:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: inertia-db
+
+volumes:
+  postgresdb:
+    driver: local
