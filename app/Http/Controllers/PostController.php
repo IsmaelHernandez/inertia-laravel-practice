@@ -33,7 +33,7 @@ class PostController extends Controller
         try {
             $create = Post::create($request->only('title', 'author'));
             dd($create);
-            return Redirect::route('posts.index');
+            return Redirect::route('posts.index')->with('success', 'Post creado correctamente');
         } catch (Exception $e) {
             return Redirect::back()->withErrors(['error' => 'Hubo un error al guardar el post.']);
         }
@@ -54,11 +54,11 @@ class PostController extends Controller
                 'title' => 'required',
                 'author' => 'required'
             ]);
+            throw new Exception('error test');
             $test = POST::where('id', $id)->update($request->only('title', 'author'));
-            return Redirect::route('posts.index');
+            return Redirect::route('posts.index')->with('success', 'Post actualizado correctamente');
         } catch (Exception $e) {
-            dd($e);
-            return Redirect::back()->withErrors(['error' => $e]);
+            return Redirect::back()->withErrors(['error' => 'Hubo un error al guardar el post.']);
         }
     }
 
@@ -66,9 +66,9 @@ class PostController extends Controller
     {
         try {
             $post->delete();
-            return Redirect::route('posts.index');
+            return Redirect::route('posts.index')->with('success', 'Post eliminado correctamente');
         } catch (Exception $e) {
-            return Redirect::back()->withErrors(['error' => $e]);
+            return Redirect::back()->withErrors(['error' => 'Hubo un error al eliminar el post.']);
         }
     }
 }

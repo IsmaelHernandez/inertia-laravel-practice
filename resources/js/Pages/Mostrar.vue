@@ -11,7 +11,7 @@
                 <Link
                     :href="route('posts.create')"
                     class="flex-shrink-0 bg-blue-500 text-white text-base font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-blue-200"
-                    type="button"
+                    as="button"
                 >
                     Nuevo
                 </Link>
@@ -55,7 +55,7 @@
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <div class="text-sm">
-                                    <span>$ </span>{{ post.author }}
+                                    {{ post.author }}
                                 </div>
                             </td>
                             <td class="flex m-2">
@@ -64,7 +64,7 @@
                                             route('posts.edit', post.id)
                                         "
                                         class="flex-shrink-0 bg-purple-600 text-white text-base font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-purple-200"
-                                        type="button"
+                                        as="button"
                                     >
                                         Editar
                                     </Link>
@@ -77,7 +77,7 @@
                                             )
                                         "
                                         class="flex-shrink-0 bg-pink-500 text-white text-base font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-pink-700 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2 focus:ring-offset-pink-200"
-                                        type="button"
+                                        as="button"
                                     >
                                         Borrar
                                     </Link>
